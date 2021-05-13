@@ -29,7 +29,7 @@
 - compare correlation survival with others
 
 
-# 3. Preprocessing Data ()
+# 3. Preprocessing Data (preprocessing.py)
 
 ## 3.1 Data Cleaning
 - split data (rate=0.2)
