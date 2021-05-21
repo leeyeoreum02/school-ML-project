@@ -15,7 +15,7 @@
 
 # 2. Data Analyze (overview.ipynb)
 
-## 2.1 Overview Data (overview.ipynb)
+## 2.1 Overview Data
 - Label
     - Survived
 - Column that has null value -> have to process
@@ -39,6 +39,7 @@
 # 3. Preprocessing Data (preprocessing.py)
 
 ## 3.1 Data Cleaning
+- Data Shuffle
 - Delete unnecessary column
     - Name: no matter to train good model
     - Ticket: too many text values to encode
@@ -50,4 +51,112 @@
 - Process categorical column
     - Sex: female:0, male:1 (used OrdinalEncoder)
 
+
 ## 4. Training Model
+
+- validation strategy: using stratified k-fold to avoid data bias and overfitting
+
+- (model) SGD Classifier
+    - Review: Regularization didn't show better performance, I think that because dataset is pretty simple. 
+    - score example:
+        - non-regularization:
+            - accuracy(5-fold validation): [0.78, 0.75, 0.79, 0.79, 0.76]
+            - confusion matrix: [[501  48]
+                                [147 195]]
+            - precision score: 0.80
+            - recall score: 0.57
+            - f1 score: 0.67
+            - kaggle submission score(accuracy):
+        - rasso regularization:
+            - accuracy(5-fold validation): [0.68, 0.78, 0.79, 0.76, 0.77]
+            - confusion matrix: [[442 107]
+                                [ 95 247]]
+            - precision score: 0.70
+            - recall score: 0.72
+            - f1 score: 0.71
+            - kaggle submission score(accuracy): 0.72
+        - ridge regularization:
+            - accuracy(5-fold validation): [0.75, 0.73, 0.78, 0.79, 0.73]
+            - confusion matrix: [[397 152]
+                                [ 71 271]]
+            - precision score: 0.64
+            - recall score: 0.79
+            - f1 score: 0.71
+            - kaggle submission score(accuracy): 0.76
+        - elastic regularization:
+            - accuracy(5-fold validation): [0.75, 0.73, 0.78, 0.79, 0.73]
+            - confusion matrix: [[486  63]
+                                [125 217]]
+            - precision score: 0.78
+            - recall score: 0.63
+            - f1 score: 0.70
+            - kaggle submission score(accuracy): 0.76
+
+- (model) Logistic Regression
+- Review: Regularization didn't show better performance as well.
+- score example:
+    - non-regularization:
+        - accuracy(5-fold validation): [0.79, 0.75, 0.80, 0.81, 0.81]
+        - confusion matrix: [[471  78]
+                            [101 241]]
+        - precision score: 0.76
+        - recall score: 0.70
+        - f1 score: 0.73
+        - kaggle submission score(accuracy): 0.76
+    - ridge regularization(default):
+        - accuracy(5-fold validation): [0.79, 0.75, 0.80, 0.82, 0.81]
+        - confusion matrix: [[474 75]
+                            [101 241]]
+        - precision score: 0.76
+        - recall score: 0.70
+        - f1 score: 0.73
+        - kaggle submission score(accuracy): 0.76
+
+- (model) Support Vector Classifier
+    - Review: This model showed better performance than SGDClassifier, LogisticRegression but there was overfitting.
+    - score example:
+        - non-regularization
+            - accuracy(5-fold validation): [0.82, 0.81, 0.87, 0.80, 0.82]
+            - confusion matrix: [[499  50]
+                                [ 99 243]]
+            - precision score: 0.83
+            - recall score: 0.71
+            - f1 score: 0.77
+            - kaggle submission score(accuracy): 0.78
+
+- (model) Random Forest Classifier
+    - Review: First emsemble model, it showed better performance than single model but there was little overfitting
+    - score example:
+        - accuracy(5-fold validation): [0.78, 0.79, 0.90, 0.80, 0.80]
+        - confusion matrix: [[527  22]
+                            [ 26 316]]
+        - precision score: 0.93
+        - recall score: 0.92
+        - f1 score: 0.93
+        - kaggle submission score(accuracy): 0.77
+
+- (model) Voting Classifier
+    - Review: Ensemble model, it used estimators that are model used before. it showed better performance than single model too. there was no critical overfitting.
+    - score example:
+        - accuracy(5-fold validation): [0.80, 0.77, 0.83, 0.81, 0.83]
+        - confusion matrix: [[501  48]
+                            [112 230]]
+        - precision score: 0.83
+        - recall score: 0.67
+        - f1 score: 0.74
+        - kaggle submission score(accuracy): 0.78
+
+- (model) Bagging Classifier: didn't use because it's known that it didn't show good performance in small dataset.
+
+- (model) AdaBoost Classifier
+    - Review: Ensemble model, it used Decision Tree. it showed worse preformance than single model. there was overfitting.
+    - score example:
+        - accuracy(5-fold validation): [0.85, 0.81, 0.78, 0.81, 0.77]
+        - confusion matrix: [[478  71]
+                            [ 79 263]]
+        - precision score: 0.79
+        - recall score: 0.77
+        - f1 score: 0.78
+        - kaggle submission score(accuracy): 0.75
+
+- Conclusion: Ensemble model showed better performance than single model usually. But among single model, Support Vector Classifier showed good performance like ensemble model
