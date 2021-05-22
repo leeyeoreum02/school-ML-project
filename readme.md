@@ -57,16 +57,16 @@
 - validation strategy: using stratified k-fold to avoid data bias and overfitting
 
 - (model) SGD Classifier
-    - Review: Regularization didn't show better performance, I think that because dataset is pretty simple. 
+    - Review: Some regularization didn't show better performance, I think that because dataset is pretty simple. non-regularization, rasso SGD Classifier showed overfitting.
     - score example:
         - non-regularization:
-            - accuracy(5-fold validation): [0.78, 0.75, 0.79, 0.79, 0.76]
-            - confusion matrix: [[501  48]
-                                [147 195]]
-            - precision score: 0.80
-            - recall score: 0.57
-            - f1 score: 0.67
-            - kaggle submission score(accuracy):
+            - accuracy(5-fold validation): [0.68, 0.78, 0.79, 0.76, 0.76]
+            - confusion matrix: [[429 120]
+                                [ 78 264]]
+            - precision score: 0.69
+            - recall score: 0.77
+            - f1 score: 0.72
+            - kaggle submission score(accuracy): 0.71
         - rasso regularization:
             - accuracy(5-fold validation): [0.68, 0.78, 0.79, 0.76, 0.77]
             - confusion matrix: [[442 107]
@@ -93,7 +93,7 @@
             - kaggle submission score(accuracy): 0.76
 
 - (model) Logistic Regression
-- Review: Regularization didn't show better performance as well.
+- Review: Regularization didn't show better performance as well. it showed overfitting little bit.
 - score example:
     - non-regularization:
         - accuracy(5-fold validation): [0.79, 0.75, 0.80, 0.81, 0.81]
@@ -125,7 +125,7 @@
             - kaggle submission score(accuracy): 0.78
 
 - (model) Random Forest Classifier
-    - Review: First emsemble model, it showed better performance than single model but there was little overfitting
+    - Review: First emsemble model, it showed better performance than single model but there was overfitting little bit.
     - score example:
         - accuracy(5-fold validation): [0.78, 0.79, 0.90, 0.80, 0.80]
         - confusion matrix: [[527  22]

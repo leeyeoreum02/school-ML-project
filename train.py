@@ -21,7 +21,7 @@ X_data, y_data = load_preprocessed_data('train')
 test_data = load_preprocessed_data('test')
 submit_data = pd.read_csv('data/gender_submission.csv')
 
-sgd_clf = SGDClassifier()
+sgd_clf = SGDClassifier(penalty='none')
 rasso_sgd = SGDClassifier(penalty='l1')
 ridge_sgd = SGDClassifier(penalty='l2')
 elastic_sgd = SGDClassifier(penalty='elasticnet')
@@ -57,7 +57,7 @@ models.update({
 
 skfolds = StratifiedKFold(n_splits=5, shuffle=False)
 
-for clf in models.values():
+for clf in [sgd_clf]:
     scores = []
     for train_index, test_index in skfolds.split(X_data, y_data):
         X_train_folds = X_data[train_index]
