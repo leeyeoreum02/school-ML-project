@@ -57,7 +57,7 @@ models.update({
 
 skfolds = StratifiedKFold(n_splits=5, shuffle=False)
 
-for clf in [sgd_clf]:
+for clf in models.values():
     scores = []
     for train_index, test_index in skfolds.split(X_data, y_data):
         X_train_folds = X_data[train_index]
