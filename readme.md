@@ -52,7 +52,7 @@
     - Sex: female:0, male:1 (used OrdinalEncoder)
 
 
-## 4. Training Model (train.py)
+# 4. Training Model (train.py)
 
 - validation strategy: using stratified k-fold to avoid data bias and overfitting
 
