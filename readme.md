@@ -159,4 +159,4 @@
         - f1 score: 0.78
         - kaggle submission score(accuracy): 0.75
 
-- Conclusion: Ensemble model showed better performance than single model usually. But among single model, Support Vector Classifier showed good performance like ensemble model. Also regularized model generally showed better performance.
+- Conclusion: Ensemble model showed better performance than single model usually. But among single model, Support Vector Classifier showed good performance like ensemble model. Also regularized model generally showed better performance in kaggle submission that predicts 'test.csv' data(non-label) because it prevents overfitting.
