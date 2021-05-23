@@ -57,7 +57,7 @@
 - validation strategy: using stratified k-fold to avoid data bias and overfitting
 
 - (model) SGD Classifier
-    - Review: Some regularization didn't show better performance, I think that because dataset is pretty simple. non-regularization, rasso SGD Classifier showed overfitting.
+    - Review: Regularization showed better performance. non-regularization, rasso SGD Classifier showed overfitting.
     - score example:
         - non-regularization:
             - accuracy(5-fold validation): [0.68, 0.78, 0.79, 0.76, 0.76]
@@ -93,7 +93,7 @@
             - kaggle submission score(accuracy): 0.76
 
 - (model) Logistic Regression
-- Review: Regularization didn't show better performance as well. it showed overfitting little bit.
+- Review: Regularization didn't show better performance. it showed overfitting little bit.
 - score example:
     - non-regularization:
         - accuracy(5-fold validation): [0.79, 0.75, 0.80, 0.81, 0.81]
@@ -159,4 +159,4 @@
         - f1 score: 0.78
         - kaggle submission score(accuracy): 0.75
 
-- Conclusion: Ensemble model showed better performance than single model usually. But among single model, Support Vector Classifier showed good performance like ensemble model
+- Conclusion: Ensemble model showed better performance than single model usually. But among single model, Support Vector Classifier showed good performance like ensemble model. Also regularized model generally showed better performance.
