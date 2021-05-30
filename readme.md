@@ -13,7 +13,7 @@
     - using Kaggle API
 
 
-# 2. Data Analyze (overview.ipynb)
+# 2. Data Analyze (data_overview.ipynb)
 
 ## 2.1 Overview Data
 - Label
@@ -52,7 +52,7 @@
     - Sex: female:0, male:1 (used OrdinalEncoder)
 
 
-# 4. Training Model (train.py)
+# 4. Training Model (main.py)
 
 - validation strategy: using stratified k-fold to avoid data bias and overfitting
 
